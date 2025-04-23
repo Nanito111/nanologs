@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: rgb(255, 252, 240);
+    --bg-2: rgb(242, 240, 229);
+    --tx: rgb(16, 15, 15);
+    --tx-2: rgb(111, 110, 105);
+    --tx-3: rgb(183, 181, 172);
+
+    --re-2: rgb(209, 77, 65);
+    --re: rgb(175, 48, 41);
+    --or-2: rgb(218, 112, 44);
+    --or: rgb(188, 82, 21);
+    --ye-2: rgb(208, 162, 21);
+    --ye: rgb(173, 131, 1);
+    --gr-2: rgb(135, 154, 57);
+    --gr: rgb(102, 128, 11);
+    --cy-2: rgb(58, 169, 159);
+    --cy: rgb(36, 131, 123);
+    --bl-2: rgb(67, 133, 190);
+    --bl: rgb(32, 94, 166);
+    --pu-2: rgb(139, 126, 200);
+    --pu: rgb(94, 64, 157);
+    --ma-2: rgb(206, 93, 151);
+    --ma: rgb(160, 47, 111);
+
+    --noise-constrast: 0.7;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: rgb(16, 15, 15);
+    --bg-2: rgb(28, 27, 26);
+    --tx: rgb(206, 205, 195);
+    --tx-2: rgb(135, 133, 128);
+    --tx-3: rgb(87, 86, 83);
+
+    --re: rgb(209, 77, 65);
+    --re-2: rgb(175, 48, 41);
+    --or: rgb(218, 112, 44);
+    --or-2: rgb(188, 82, 21);
+    --ye: rgb(208, 162, 21);
+    --ye-2: rgb(173, 131, 1);
+    --gr: rgb(135, 154, 57);
+    --gr-2: rgb(102, 128, 11);
+    --cy: rgb(58, 169, 159);
+    --cy-2: rgb(36, 131, 123);
+    --bl: rgb(67, 133, 190);
+    --bl-2: rgb(32, 94, 166);
+    --pu: rgb(139, 126, 200);
+    --pu-2: rgb(94, 64, 157);
+    --ma: rgb(206, 93, 151);
+    --ma-2: rgb(160, 47, 111);
+
+    --noise-constrast: 0.3;
+  }
+}
+
+:root {
+  background-color: var(--bg);
+  font-family: "JetBrains Mono", monospace;
+  color: var(--tx);
+  scroll-behavior: smooth;
+  color-scheme: light dark;
+}
+
+::selection {
+  color: var(--bg);
+  background: var(--tx);
+}
+
+h1 {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: var(--pu);
+  text-shadow: var(--pu-2) 0 0 40px;
+
+  font-size: 6rem;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: var(--ye);
+  font-size: 3rem;
+  margin: 1.5rem 0;
+}
+
+#noise {
+  background-image: url("assets/noisy-texture-256x256.png");
+  mix-blend-mode: overlay;
+  position: absolute;
+  max-width: unset;
+  height: 100%;
+  z-index: -8;
+
+  filter: contrast(var(--noise-constrast));
+}
+
+
+#gradient {
+  --gradient1-color: color-mix(in srgb, var(--pu), transparent 70%);
+  --gradient2-color: color-mix(in srgb, var(--ye), transparent 80%);
+  background-image:
+    radial-gradient(circle at -30% -50%, var(--gradient1-color) 0%, transparent 60%),
+    radial-gradient(circle at 120% 80%, var(--gradient2-color) 0%, transparent 50%);
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  max-width: unset;
+  height: 100%;
+  z-index: -9;
+}
+
+body {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin: 0;
+}
+
+body>* {
+  width: 100%;
+  max-width: 900px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+
+main {
+  height: 85vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  p {
+    letter-spacing: -1px;
+  }
+
+  ul {
+    list-style-type: square;
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+
+  >ul {
+    all: unset;
+
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    width: 100%;
+    max-width: 800px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    >li {
+      all: unset;
+      margin: 0 1rem;
+      text-wrap: nowrap;
+      color: var(--tx-3);
+    }
+
+    >li#current-section {
+      color: var(--ye);
+      opacity: 1;
+      text-shadow: var(--ye-2) 0 0 10px;
+    }
+
+    scrollbar-color: transparent;
+  }
+
+}
