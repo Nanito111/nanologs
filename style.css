@@ -63,7 +63,6 @@
   background-color: var(--bg);
   font-family: "JetBrains Mono", monospace;
   color: var(--tx);
-  scroll-behavior: smooth;
   color-scheme: light dark;
 }
 
@@ -76,8 +75,7 @@ h1 {
   font-family: "Caveat", cursive;
   font-optical-sizing: auto;
   font-style: normal;
-  color: var(--pu);
-  text-shadow: var(--pu-2) 0 0 40px;
+  color: var(--ye);
 
   font-size: 6rem;
   text-align: center;
@@ -90,6 +88,7 @@ h2 {
   color: var(--ye);
   font-size: 3rem;
   margin: 1.5rem 0;
+  text-transform: capitalize;
 }
 
 #noise {
@@ -105,7 +104,7 @@ h2 {
 
 
 #gradient {
-  --gradient1-color: color-mix(in srgb, var(--pu), transparent 70%);
+  --gradient1-color: color-mix(in srgb, var(--ye-2), transparent 70%);
   --gradient2-color: color-mix(in srgb, var(--ye), transparent 80%);
   background-image:
     radial-gradient(circle at -30% -50%, var(--gradient1-color) 0%, transparent 60%),
@@ -126,9 +125,7 @@ body {
   align-items: center;
   height: 100vh;
 
-  padding-right: 1rem;
-  padding-left: 1rem;
-  margin: 0;
+  margin: 0 1rem;
 }
 
 body>* {
@@ -138,14 +135,53 @@ body>* {
 
 header {
   display: flex;
-  justify-content: center;
-  font-weight: bold;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  height: 60px;
+
+  text-transform: uppercase;
+
+  a {
+    color: var(--tx);
+    font-size: 1rem;
+    transition: all 200ms ease;
+    text-decoration: none;
+    padding: 0 0.5rem;
+
+    &.current-page {
+      color: var(--bg);
+      font-weight: bold;
+      background-color: var(--ye);
+      pointer-events: none;
+    }
+
+    &:visited:not(.current-page) {
+      color: unset;
+    }
+
+    &:hover:not(.current-page) {
+      text-shadow: var(--tx-3) 0 0 10px;
+      text-decoration: underline;
+    }
+
+    &:active:not(.current-page) {
+      text-shadow: var(--tx-3) 0 0 10px;
+      text-decoration: underline;
+    }
+  }
 }
 
 main {
-  height: 85vh;
+  --limit-color: color-mix(in srgb, var(--tx-3), transparent 60%);
+  border: var(--limit-color) 1px solid;
+  box-shadow: 0 0px 15px 0px var(--limit-color) inset;
+  height: 87vh;
   overflow-y: scroll;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+  border-radius: 5px;
 
   p {
     letter-spacing: -1px;
@@ -153,6 +189,10 @@ main {
 
   ul {
     list-style-type: square;
+  }
+
+  >div {
+    padding: 0 1rem;
   }
 }
 
@@ -163,19 +203,22 @@ footer {
   align-items: center;
   height: 60px;
 
-  >ul {
+  >#headings {
     all: unset;
 
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
     overflow-y: hidden;
+    scroll-behavior: smooth;
     justify-content: space-evenly;
+    align-items: center;
     flex-wrap: nowrap;
 
     scrollbar-width: none;
     -ms-overflow-style: none;
 
+    height: 100%;
     width: 100%;
     max-width: 800px;
 
@@ -183,14 +226,14 @@ footer {
       display: none;
     }
 
-    >li {
+    >a {
       all: unset;
       margin: 0 1rem;
       text-wrap: nowrap;
       color: var(--tx-3);
     }
 
-    >li#current-section {
+    >a.current-section {
       color: var(--ye);
       opacity: 1;
       text-shadow: var(--ye-2) 0 0 10px;
