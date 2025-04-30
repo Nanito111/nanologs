@@ -115,7 +115,7 @@ h2 {
 }
 
 #noise {
-  background-image: url("assets/noisy-texture-256x256.png");
+  background-image: url("noisy-texture-256x256.png");
   mix-blend-mode: overlay;
   position: absolute;
   max-width: unset;
@@ -221,7 +221,7 @@ main {
   }
 }
 
-footer {
+index {
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>nanologs - home</title>
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+  <div id="gradient">
+  </div>
+  <div id="noise">
+  </div>
+  {% include 'header.html'%}
+  <main>
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+  {% block index %}
+  <index></index>
+  {% endblock %}
+</body>
+
+</html>
