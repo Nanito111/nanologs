@@ -284,6 +284,7 @@ footer {
     display: flex;
     flex-direction: row;
     gap: 0 10px;
+    align-items: center;
     padding: 0 0.5rem;
     border-radius: 5px;
     background-color: var(--bg-2);
@@ -291,7 +292,6 @@ footer {
     border: 1px var(--ui) solid;
 
     height: 30px;
-    line-height: 28px;
     text-transform: lowercase;
     text-align: center;
     transition-property: box-shadow, border-color;
@@ -307,6 +307,12 @@ footer {
     &:active {
       box-shadow: var(--ye-2) 0 0 10px -5px;
     }
+  }
+
+  >a>.bi::before {
+    display: inline-block;
+    font-weight: 400 !important;
+    font-style: normal;
   }
 
   >a>span {
