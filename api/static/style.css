@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -88,10 +88,9 @@ h1 {
   font-style: normal;
   color: var(--ye);
 
-
   font-size: calc(3rem + 2vw);
 
-  @media(min-width: 1920px) {
+  @media (min-width: 1920px) {
     font-size: 5rem;
   }
 
@@ -103,10 +102,9 @@ h2 {
   font-style: normal;
   color: var(--ye);
 
-
   font-size: calc(2rem + 1vw);
 
-  @media(min-width: 1920px) {
+  @media (min-width: 1920px) {
     font-size: 3rem;
   }
 
@@ -126,13 +124,20 @@ h2 {
   filter: contrast(var(--noise-constrast));
 }
 
-
 #gradient {
   --gradient1-color: color-mix(in srgb, var(--ye-2), transparent 70%);
   --gradient2-color: color-mix(in srgb, var(--ye), transparent 80%);
   background-image:
-    radial-gradient(circle at -30% -50%, var(--gradient1-color) 0%, transparent 60%),
-    radial-gradient(circle at 120% 80%, var(--gradient2-color) 0%, transparent 50%);
+    radial-gradient(
+      circle at -30% -50%,
+      var(--gradient1-color) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 120% 80%,
+      var(--gradient2-color) 0%,
+      transparent 50%
+    );
 
   image-rendering: pixelated;
   background-repeat: no-repeat;
@@ -153,7 +158,7 @@ body {
   margin: 0 1rem;
 }
 
-body>* {
+body > * {
   width: 100%;
   max-width: 900px;
 }
@@ -216,7 +221,7 @@ main {
     list-style-type: square;
   }
 
-  >div {
+  > div {
     padding: 0 1rem;
   }
 }
@@ -228,7 +233,7 @@ index {
   align-items: center;
   height: 60px;
 
-  >#headings {
+  > #headings {
     all: unset;
 
     display: flex;
@@ -251,18 +256,18 @@ index {
       display: none;
     }
 
-    >a {
+    > a {
       all: unset;
       margin: 0 1rem;
       text-wrap: nowrap;
       color: var(--tx-3);
     }
 
-    >a:hover {
+    > a:hover {
       cursor: pointer;
     }
 
-    >a.current-section {
+    > a.current-section {
       color: var(--ye);
       opacity: 1;
       text-shadow: var(--ye-2) 0 0 10px;
@@ -279,7 +284,7 @@ index {
   gap: 0 2rem;
   height: 60px;
 
-  >a {
+  > a {
     all: unset;
     display: flex;
     flex-direction: row;
@@ -309,19 +314,19 @@ index {
     }
   }
 
-  >a>.bi::before {
+  > a > .bi::before {
     display: inline-block;
     font-weight: 400 !important;
     font-style: normal;
   }
 
-  >a>span {
+  > a > span {
     display: none;
     overflow: hidden;
     text-overflow: ellipsis;
     text-wrap-mode: nowrap;
 
-    @media(min-width: 590px) {
+    @media (min-width: 590px) {
       display: block;
       max-width: 9rem;
     }
