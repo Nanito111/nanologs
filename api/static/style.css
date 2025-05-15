@@ -1,6 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap");
 
+/* colors from flexoki palette - https://stephango.com/flexoki */
 @media (prefers-color-scheme: light) {
   :root {
     --bg: rgb(255, 252, 240);
@@ -30,6 +31,11 @@
     --pu: rgb(94, 64, 157);
     --ma-2: rgb(206, 93, 151);
     --ma: rgb(160, 47, 111);
+
+    --accent: var(--ye);
+    --accent-2: var(--ye-2);
+    --oposite: var(--bl);
+    --oposite-2: var(--bl-2);
 
     --noise-constrast: 0.7;
   }
@@ -65,6 +71,11 @@
     --ma: rgb(206, 93, 151);
     --ma-2: rgb(160, 47, 111);
 
+    --accent: var(--pu);
+    --accent-2: var(--pu-2);
+    --oposite: var(--or);
+    --oposite-2: var(--or-2);
+
     --noise-constrast: 0.3;
   }
 }
@@ -72,9 +83,10 @@
 :root {
   background-color: var(--bg);
   font-family: "JetBrains Mono", monospace;
+  font-weight: 200;
   color: var(--tx);
   color-scheme: light dark;
-  scrollbar-color: var(--ye) transparent;
+  scrollbar-color: var(--accent) transparent;
   scrollbar-width: thin;
 }
 
@@ -84,9 +96,12 @@
 }
 
 h1 {
-  font-family: "Caveat", cursive;
+  /* font-family: "Caveat", cursive; */
+  font-family: "Nothing You Could Do", cursive;
   font-style: normal;
-  color: var(--ye);
+  font-weight: 400;
+  color: var(--accent);
+  text-align: center;
 
   font-size: calc(3rem + 2vw);
 
@@ -94,26 +109,33 @@ h1 {
     font-size: 5rem;
   }
 
-  text-align: center;
+  > small {
+    all: unset;
+    display: block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 1rem;
+    font-weight: 200;
+  }
 }
 
 h2 {
-  font-family: "Caveat", cursive;
   font-style: normal;
-  color: var(--ye);
+  font-weight: 400;
+  color: var(--accent);
 
-  font-size: calc(2rem + 1vw);
+  font-size: calc(1.4rem + 1vw);
 
   @media (min-width: 1920px) {
     font-size: 3rem;
   }
 
   margin: 1.5rem 0;
-  text-transform: capitalize;
+  margin-bottom: 0;
+  text-transform: lowercase;
 }
 
 #noise {
-  background-image: url("noisy-texture-256x256.png");
+  background-image: url("noisy-texture-256x256.webp");
   mix-blend-mode: overlay;
   position: absolute;
   max-width: unset;
@@ -125,8 +147,8 @@ h2 {
 }
 
 #gradient {
-  --gradient1-color: color-mix(in srgb, var(--ye-2), transparent 70%);
-  --gradient2-color: color-mix(in srgb, var(--ye), transparent 80%);
+  --gradient1-color: color-mix(in srgb, var(--accent-2), transparent 80%);
+  --gradient2-color: color-mix(in srgb, var(--accent), transparent 80%);
   background-image:
     radial-gradient(
       circle at -30% -50%,
@@ -153,7 +175,7 @@ body {
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
 
   margin: 0 1rem;
 }
@@ -183,7 +205,7 @@ header {
     &.current-page {
       color: var(--bg);
       font-weight: bold;
-      background-color: var(--ye);
+      background-color: var(--accent);
       pointer-events: none;
     }
 
@@ -206,7 +228,7 @@ header {
 main {
   --limit-color: color-mix(in srgb, var(--tx-3), transparent 60%);
   border: var(--limit-color) 1px solid;
-  box-shadow: 0 0px 15px 0px var(--limit-color) inset;
+  box-shadow: 0 0px 15px -5px var(--limit-color) inset;
   height: 87vh;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -223,6 +245,58 @@ main {
 
   > div {
     padding: 0 1rem;
+  }
+  a {
+    color: var(--tx);
+    &:visited {
+      color: unset;
+      text-decoration: none;
+    }
+    &:hover {
+      text-shadow: var(--tx-3) 0 0 10px;
+      text-decoration: underline;
+    }
+  }
+
+  div.image {
+    display: flex;
+    justify-content: center;
+  }
+
+  img {
+    border-radius: 2px;
+    border: 1px var(--ui) solid;
+    box-shadow: var(--tx) 0 0 10px -5px;
+  }
+}
+
+ul.index_of {
+  list-style-type: "> ";
+  a {
+    transition-property: background-color, color, border-color, box-shadow;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+    transition-behavior: normal;
+
+    display: inline-block;
+    padding: 0 0.5rem;
+    height: 30px;
+
+    background-color: var(--bg-2);
+    border-radius: 5px;
+    border: 1px var(--ui) solid;
+    line-height: 1.6;
+    text-decoration: none;
+
+    &:hover {
+      /* color: var(--accent); */
+      border: 1px var(--accent) solid;
+      box-shadow: var(--ui-3) 0 0 10px -2px;
+    }
+    &:active {
+      background-color: var(--bg-1);
+      box-shadow: none;
+    }
   }
 }
 
@@ -268,9 +342,9 @@ index {
     }
 
     > a.current-section {
-      color: var(--ye);
+      color: var(--accent);
       opacity: 1;
-      text-shadow: var(--ye-2) 0 0 10px;
+      text-shadow: var(--accent-2) 0 0 10px;
     }
 
     scrollbar-color: transparent;
@@ -293,7 +367,7 @@ index {
     padding: 0 0.5rem;
     border-radius: 5px;
     background-color: var(--bg-2);
-    color: var(--ye);
+    color: var(--accent);
     border: 1px var(--ui) solid;
 
     height: 30px;
@@ -305,12 +379,12 @@ index {
 
     &:hover {
       cursor: pointer;
-      border: 1px var(--ye-2) solid;
-      box-shadow: var(--ye-2) 0 0 10px -2px;
+      border: 1px var(--accent) solid;
+      box-shadow: var(--ui-3) 0 0 10px -2px;
     }
 
     &:active {
-      box-shadow: var(--ye-2) 0 0 10px -5px;
+      box-shadow: var(--ui-3) 0 0 10px -5px;
     }
   }
 
