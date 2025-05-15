@@ -5,7 +5,7 @@ from os.path import join
 
 app = Flask(__name__)
 app.debug = True
-DEVLOGS_DIR = join("api", "devlogs")
+DEVLOGS_DIR = join("api", "templates", "devlogs")
 
 
 @app.route("/")
