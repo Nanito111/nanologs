@@ -1,0 +1,23 @@
+{
+  "title": "nanologs",
+  "subtitle": "My personal blog for development of my projects.",
+  "menu": [
+    {
+      "title": "About me",
+      "entries": [
+        {
+          "title": "github",
+          "url": "https://github.com/Nanito111"
+        },
+        {
+          "title": "linkedin",
+          "url": "https://www.linkedin.com/in/fco-gs"
+        }
+      ]
+    },
+    {
+      "title": "My logs",
+      "post_list": "log"
+    }
+  ]
+}

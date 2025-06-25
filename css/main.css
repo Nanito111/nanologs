@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+
+/* using flexoki palette | https://stephango.com/flexoki */
+
+:root {
+  color-scheme: light dark;
+  --paper: #fffcf0;
+  --base-50: #f2f0e5;
+  --base-100: #e6e4d9;
+  --base-150: #dad8ce;
+  --base-200: #cecdc3;
+  --base-300: #b7b5ac;
+  --base-400: #9f9d96;
+  --base-500: #878580;
+  --base-600: #6f6e69;
+  --base-700: #575653;
+  --base-800: #403e3c;
+  --base-850: #343331;
+  --base-900: #282726;
+  --base-950: #1c1b1a;
+  --black: #100f0f;
+
+  --red-50: #ffe1d5;
+  --red-100: #ffcabb;
+  --red-150: #fdb2a2;
+  --red-200: #f89a8a;
+  --red-300: #e8705f;
+  --red-400: #d14d41;
+  --red-500: #c03e35;
+  --red-600: #af3029;
+  --red-700: #942822;
+  --red-800: #6c201c;
+  --red-850: #551b18;
+  --red-900: #3e1715;
+  --red-950: #261312;
+
+  --orange-50: #ffe7ce;
+  --orange-100: #fed3af;
+  --orange-150: #fcc192;
+  --orange-200: #f9ae77;
+  --orange-300: #ec8b49;
+  --orange-400: #da702c;
+  --orange-500: #cb6120;
+  --orange-600: #bc5215;
+  --orange-700: #9d4310;
+  --orange-800: #71320d;
+  --orange-850: #59290d;
+  --orange-900: #40200d;
+  --orange-950: #27180e;
+
+  --yellow-50: #faeec6;
+  --yellow-100: #f6e2a0;
+  --yellow-150: #f1d67e;
+  --yellow-200: #eccb60;
+  --yellow-300: #dfb431;
+  --yellow-400: #d0a215;
+  --yellow-500: #be9207;
+  --yellow-600: #ad8301;
+  --yellow-700: #8e6b01;
+  --yellow-800: #664d01;
+  --yellow-850: #503d02;
+  --yellow-900: #3a2d04;
+  --yellow-950: #241e08;
+
+  --green-50: #edeecf;
+  --green-100: #dde2b2;
+  --green-150: #cdd597;
+  --green-200: #bec97e;
+  --green-300: #a0af54;
+  --green-400: #879a39;
+  --green-500: #768d21;
+  --green-600: #66800b;
+  --green-700: #536907;
+  --green-800: #3d4c07;
+  --green-850: #313d07;
+  --green-900: #252d09;
+  --green-950: #1a1e0c;
+
+  --cyan-50: #ddf1e4;
+  --cyan-100: #bfe8d9;
+  --cyan-150: #a2dece;
+  --cyan-200: #87d3c3;
+  --cyan-300: #5abdac;
+  --cyan-400: #3aa99f;
+  --cyan-500: #2f968d;
+  --cyan-600: #24837b;
+  --cyan-700: #1c6c66;
+  --cyan-800: #164f4a;
+  --cyan-850: #143f3c;
+  --cyan-900: #122f2c;
+  --cyan-950: #101f1d;
+
+  --blue-50: #e1eceb;
+  --blue-100: #c6dde8;
+  --blue-150: #abcfe2;
+  --blue-200: #92bfdb;
+  --blue-300: #66a0c8;
+  --blue-400: #4385be;
+  --blue-500: #3171b2;
+  --blue-600: #205ea6;
+  --blue-700: #1a4f8c;
+  --blue-800: #163b66;
+  --blue-850: #133051;
+  --blue-900: #12253b;
+  --blue-950: #101a24;
+
+  --purple-50: #f0eaec;
+  --purple-100: #e2d9e9;
+  --purple-150: #d3cae6;
+  --purple-200: #c4b9e0;
+  --purple-300: #a699d0;
+  --purple-400: #8b7ec8;
+  --purple-500: #735eb5;
+  --purple-600: #5e409d;
+  --purple-700: #4f3685;
+  --purple-800: #3c2a62;
+  --purple-850: #31234e;
+  --purple-900: #261c39;
+  --purple-950: #1a1623;
+
+  --magenta-50: #fee4e5;
+  --magenta-100: #fccfda;
+  --magenta-150: #f9b9cf;
+  --magenta-200: #f4a4c2;
+  --magenta-300: #e47da8;
+  --magenta-400: #ce5d97;
+  --magenta-500: #b74583;
+  --magenta-600: #a02f6f;
+  --magenta-700: #87285e;
+  --magenta-800: #641f46;
+  --magenta-850: #4f1b39;
+  --magenta-900: #39172b;
+  --magenta-950: #24131d;
+
+  /* usable variables */
+
+  --bg-1: light-dark(var(--paper), var(--black));
+  --bg-2: light-dark(var(--base-50), var(--base-950));
+
+  --ui-1: light-dark(var(--base-100), var(--base-900));
+  --ui-2: light-dark(var(--base-150), var(--base-850));
+  --ui-3: light-dark(var(--base-200), var(--base-800));
+
+  --tx-1: light-dark(var(--black), var(--base-200));
+  --tx-2: light-dark(var(--base-600), var(--base-500));
+  --tx-3: light-dark(var(--base-300), var(--base-700));
+  --page-borders: 1.5em 0.5em;
+}
+
+::selection {
+  color: light-dark(var(--paper), var(--black));
+  background: light-dark(var(--black), var(--paper));
+}
+
+html {
+  max-width: 80ch;
+  padding: var(--page-borders);
+  margin: auto;
+  line-height: 1.75;
+  font-size: 1.4em;
+  font-family: "Crimson Text", serif;
+  background-color: var(--bg-1);
+  color: var(--tx-1);
+
+  @media (prefers-color-scheme: light) {
+    background-image: url("../media/paper-2.png");
+  }
+  @media (prefers-color-scheme: dark) {
+    background-image: url("../media/paper-2-dark.png");
+  }
+}
+
+body {
+  border-style: double;
+  border-color: var(--tx-2);
+  padding: var(--page-borders);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 2em 0 1em;
+}
+
+p,
+ul,
+ol {
+  margin-bottom: 1em;
+}
+
+.post-meta {
+  text-align: right;
+}
+
+img {
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+blockquote {
+  font-style: italic;
+  border-left: 4pt solid light-dark(var(--base-700), var(--base-400));
+  padding: 1rem;
+  background-color: color-mix(
+    in srgb,
+    light-dark(var(--base-300), var(--base-800)),
+    transparent 70%
+  );
+}
+
+blockquote p {
+  margin: 0;
+}
+
+pre {
+  overflow-x: auto;
+  padding: 1rem;
+
+  & > code {
+    padding: unset;
+    border: unset;
+  }
+}
+
+code {
+  padding: 2px 5px;
+  border: thin solid light-dark(var(--base-900), var(--base-300));
+}
+
+pre,
+code {
+  font-size: 14pt;
+  font-family: "Courier Prime", monospace;
+}
+
+table {
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: thin solid var(--tx-2);
+  border-collapse: collapse;
+  padding: 0.4rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+a {
+  color: light-dark(var(--green-700), var(--green-400));
+}
+
+#back-button {
+  color: var(--ui-1);
+  background-color: var(--tx-1);
+  padding: 2pt 5pt;
+  text-decoration: none;
+}
